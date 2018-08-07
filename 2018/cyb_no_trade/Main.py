@@ -49,8 +49,7 @@ while True:
         print(judgd_factors,mean,a50_f,cyb_f,sz50_real,cyb_real)
         if not (now.date().isoweekday() == 6 or now.date().isoweekday() == 7):
             if (amBegin < now and now < amEnd) or (pmBegin < now and now < pmEnd):
-                model.position(time=now, a50_factor=a50_f, six_indst=industry_six, cyb_factor=cyb_f,
-                               cyb_real=cyb_real, sz50_real=sz50_real,cyb_b=cyb_b,sz50_b=sz50_b,cyb_industry=cyb_industry)
+                model.position(six_indst=industry_six,cyb_real=cyb_real, sz50_real=sz50_real,cyb_b=cyb_b,sz50_b=sz50_b,cyb_industry=cyb_industry)
             elif now > pmEnd:
                 break
             else:

@@ -62,9 +62,10 @@ class judge_industry:
         cyb_weight = config.cyb_weight
         # cxg = self.get_cxg()
         res = 0
+        cyb = self.cyb * 0.9
         for i in range(len(self.data)):
             if cyb_weight.get(self.data[i][0]) != None:
-                res = res + cyb_weight.get(self.data[i][0])*(self.cyb-self.data[i][1])
+                res = res + cyb_weight.get(self.data[i][0])*(cyb-self.data[i][1])
         res = res/sum(cyb_weight.values())
         return res
 

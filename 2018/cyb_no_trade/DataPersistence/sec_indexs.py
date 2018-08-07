@@ -208,7 +208,5 @@ class IndustryData:
 if __name__ == "__main__":
     industry = IndustryData()
     industry.stock_as_history()
-    # up = industry.real_data('sz159915')
-    # industry.to_mysql_cyb((industry.dt, up), "sec_cyb")
-    # print(industry.real_data('sz159915'))
+
 
