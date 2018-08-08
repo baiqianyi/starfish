@@ -5,7 +5,8 @@ import requests
 import config.config as config
 import os
 
-os.chdir('C:\\Users\\baiqy\\Desktop\\tmp\\starfish\\2018\\cyb_no_trade')
+
+os.chdir('C:\\Users\\baiqy\\Desktop\\tmp\\starfish\\2018\\cyb_notify')
 class judge_industry:
     def __init__(self,dfcf_data):
         self.dfcf_data = dfcf_data

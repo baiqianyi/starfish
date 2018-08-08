@@ -1,6 +1,7 @@
 import os
+cur_path = os.path.abspath(".")
+os.chdir(cur_path)
 
-os.chdir('C:\\Users\\baiqy\\Desktop\\tmp\\starfish\\2018\\cyb_no_trade')
 import utils.industry_judge as factors
 import datetime as dt
 import time
@@ -48,7 +49,7 @@ while True:
         cyb_industry = judgd_factors.cyb_industry_factor()
         print(judgd_factors,mean,a50_f,cyb_f,sz50_real,cyb_real)
         if not (now.date().isoweekday() == 6 or now.date().isoweekday() == 7):
-            if (amBegin < now and now < amEnd) or (pmBegin < now and now < pmEnd):
+            if (amBegin < now and now < amEnd) or (pmBegin < now and now < pmEnd) :
                 model.position(six_indst=industry_six,cyb_real=cyb_real, sz50_real=sz50_real,cyb_b=cyb_b,sz50_b=sz50_b,cyb_industry=cyb_industry)
             elif now > pmEnd:
                 break

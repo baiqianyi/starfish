@@ -2,7 +2,7 @@ import tushare as ts
 import requests
 import re
 import os
-os.chdir('C:\\Users\\baiqy\\Desktop\\quant\\cyb_no_trade')
+os.chdir('C:\\Users\\baiqy\\Desktop\\quant\\cyb_notify')
 
 class cyb_weight:
 

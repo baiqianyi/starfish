@@ -31,7 +31,7 @@ class BackTestData:
         self.timeList = self.getTimeList()
         #881129 完成
         self.industryCode = self.readIndustryCode()[1:]
-        # self.basics = pd.DataFrame.from_csv("E:\\bqyApps\\quant\\cyb_no_trade\\resource\\basics.csv")
+        # self.basics = pd.DataFrame.from_csv("E:\\bqyApps\\quant\\cyb_notify\\resource\\basics.csv")
 
 
     def extractDataFromTxt(self, path):

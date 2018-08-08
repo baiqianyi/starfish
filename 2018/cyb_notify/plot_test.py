@@ -4,7 +4,7 @@ import os
 import re
 
 print(os.getcwd())
-os.chdir('C:\\Users\\baiqy\\Desktop\\quant\\cyb_no_trade')
+os.chdir('C:\\Users\\baiqy\\Desktop\\quant\\cyb_notify')
 print(os.getcwd())
 
 date = (datetime.datetime.now()-datetime.timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')[:10]

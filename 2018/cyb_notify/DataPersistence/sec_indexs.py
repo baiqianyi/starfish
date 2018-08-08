@@ -1,7 +1,7 @@
 import os
 import tushare as ts
 print(os.getcwd())
-os.chdir('C:\\Users\\baiqy\\Desktop\\tmp\\starfish\\2018\\cyb_no_trade')
+os.chdir('C:\\Users\\baiqy\\Desktop\\tmp\\starfish\\2018\\cyb_notify')
 print(os.getcwd())
 import requests
 import datetime

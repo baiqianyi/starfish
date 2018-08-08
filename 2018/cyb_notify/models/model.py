@@ -45,7 +45,7 @@ class model:
                 factor_ = -1
             elif cyb_six_industry > 0 and cyb_industry > 0:
                 factor_ = 1
-            cyb_diff =  factor_ * (abs(cyb_six_industry * cyb_industry))**0.5
+            cyb_diff = factor_ * (abs(cyb_six_industry * cyb_industry))**0.5
             base_cyb_diff = self.base_diff(cyb_diff)
             self.diff_list.append(base_cyb_diff)
             if len(self.diff_list) > 10:
@@ -67,12 +67,10 @@ class model:
                 msg = " <font size=\"5\" face=\"verdana\" color=\"red\">buy_point_time : " + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "</font>"
             msg = msg + "<br> base_cyb_diff : " + str(base_cyb_diff)  + "<br> cyb_diff : " + str(cyb_diff)  + "<br> cyb_min_diff : " + str(self.min_diff)  +" , cyb_min_diff_time : " + str(self.min_diff_time) +"<br> cyb_max_diff : " + str(self.max_diff) +" , cyb_max_diff_time : " + str(self.max_diff_time) +"<br> cyb_std_sell : " + str(self.std_sell) +"<br> cyb_std_buy : " + str(self.std_buy)+" <br> cyb_industry : " + str(cyb_industry) + "<br> cyb_six_indestry : " + str(cyb_six_industry) + "<br> six_indst : "+str(six_indst)+"<br> six_i : " + str(six_indst) +  "<br> a50_diff : " + str(sz50_diff) + " <br> sz50_real : " + str(sz50_real) + "<br> cyb_real : " + str(cyb_real) + "<br> cyb_b : " + str(cyb_b) + "<br> sz50_b : " + str(sz50_b)
             print(base_cyb_diff)
-            if self.last_report_time == None or self.last_report_time + datetime.timedelta(seconds=90) < datetime.datetime.now() and \
-                            datetime.datetime.now() > datetime.datetime.combine(datetime.datetime.now().date(), datetime.time(hour=11, minute=36, second=0)):
+            if (self.last_report_time == None or self.last_report_time + datetime.timedelta(seconds=90) < datetime.datetime.now()) and datetime.datetime.now() > datetime.datetime.combine(datetime.datetime.now().date(), datetime.time(hour=9, minute=36, second=0)):
                 self.last_report_time = datetime.datetime.now()
                 en.email_notify(title="2 minutes notify",msg=msg)
             self.logger.info(msg)
-
 
     def weight_mean(self,list, mean_num=5):
         mean = 0.0
@@ -118,20 +116,19 @@ class model:
                 self.diff_change_0_time = self.diff_change_0_time + 1
             if diff * self.base_factor < 0:
                 self.base_change_0_time = self.base_change_0_time + 1
+                self.tmp_diff = diff
+                return 0
+            if self.base_change_0_time > 0 and diff * self.base_factor > 0 and self.base == 0:
                 self.base = diff/2.0
         else:
             return diff
 
         self.tmp_diff = diff
 
-        if self.diff_change_0_time <= 0:
-            return diff
-        elif self.base_factor * diff > 0:
-            return diff
-        elif self.base_change_0_time <= 0:
-            return 0
-        else:
+        if diff * self.base_factor > 0:
             return diff - self.base
+        else :
+            return 0
 
     def store_analysis(self,cyb,cyb_industry_diff, cyb_six_industry_diff,six_indst,cyb_b):
         try:
