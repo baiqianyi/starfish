@@ -35,7 +35,7 @@ class HearMysql:
         self.data_sorted(begin_time, end_time)
         weights = {}
         import os
-        os.chdir('C:\\Users\\baiqy\\Desktop\\quant\\cyb_no_trade')
+        os.chdir('C:\\Users\\baiqy\\Desktop\\tmp\\starfish\\2018\\cyb_no_trade')
         with open('config\\industry_weights-2018-7-21.info', 'r') as f:
             for line in f.readlines():
                 weights['bk'+str(line.strip()).split("\t")[1][2:]] = int(line.strip().split("\t")[2])

@@ -118,7 +118,7 @@ class model:
                 self.diff_change_0_time = self.diff_change_0_time + 1
             if diff * self.base_factor < 0:
                 self.base_change_0_time = self.base_change_0_time + 1
-                self.base = diff
+                self.base = diff/2.0
         else:
             return diff
 

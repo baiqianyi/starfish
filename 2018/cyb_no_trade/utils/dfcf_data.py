@@ -5,7 +5,7 @@ import os
 import tushare as ts
 import time
 import os
-os.chdir('C:\\Users\\baiqy\\Desktop\\quant\\cyb_no_trade')
+os.chdir('C:\\Users\\baiqy\\Desktop\\tmp\\starfish\\2018\\cyb_no_trade')
 class IndustryData:
     def __init__(self):
         self.industry_page = r'http://nufm.dfcfw.com/EM_Finance2014NumericApplication/JS.aspx?type=CT&cmd=C._BKHY&sty=FPGBKI&sortType=(ChangePercent)&sortRule=-1&page=1&pageSize=100&js=var%20XWZSgeRR={rank:[(x)],pages:(pc),total:(tot)}&token=7bc05d0d4c3c22ef9fca8c2a912d779c&jsName=quote_123&_g=0.628606915911589&_=' + str(int(datetime.datetime.now().timestamp() * 1000))

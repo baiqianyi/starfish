@@ -1,6 +1,6 @@
 import os
 
-os.chdir('E:\\work\\starfish\\2018\\cyb_no_trade')
+os.chdir('C:\\Users\\baiqy\\Desktop\\tmp\\starfish\\2018\\cyb_no_trade')
 import utils.industry_judge as factors
 import datetime as dt
 import time
@@ -13,7 +13,7 @@ import DataPersistence.leastsq as leastsq
 logger = logging.getLogger('mylogger')
 logger.setLevel(logging.DEBUG)
 
-rf_handler = logging.handlers.TimedRotatingFileHandler('logs\\sz50_cyb.log', when='midnight', interval=1, backupCount=7, atTime=dt.time(0, 0, 0, 0))
+rf_handler = logging.handlers.TimedRotatingFileHandler('logs\\cyb.log', when='midnight', interval=1, backupCount=7, atTime=dt.time(0, 0, 0, 0))
 rf_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
 logger.addHandler(rf_handler)
 
