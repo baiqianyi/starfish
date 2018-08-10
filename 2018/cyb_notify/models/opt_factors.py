@@ -23,22 +23,27 @@ class opt_factors:
             diffs = self.diff_list[date]
             cybs = self.cyb_list[date]
             index = 0
+            position_change = False
             for diff in diffs:
-                if diff < std_buy and self.position == 0:
-                    # buy_point = index/len(diff)
-                    profit = profit+cybs[-1]-cybs[index]
+                diff = diff[0] + wei_b * diff[2]
+                if diff < std_buy and not self.position:
+                    buy_point = int((index+wait_i)/len(diffs))
+                    profit = profit+cybs[-1]-cybs[buy_point]
                     self.position = True
                     break
-                if diff > std_sell and self.position == True:
-                    # sell_point = index/len(diff)
-                    profit = profit + cybs[index]
+                if diff > std_sell and self.position:
+                    sell_point = int((index+wait_i)/len(diffs))
+                    profit = profit + cybs[sell_point]
                     self.position = False
+                    position_change = True
                 index = index + 1
+            if self.position and not position_change :
+                profit = profit + cybs[-1]
         return profit
 
     def diffs_and_cybs(self):
         for date in self.trade_dates:
-            diffs = self.hm.day_diff_list(date)
+            diffs = self.hm.day_diff_list(date,wei_b=0.5)
             cybs = self.hm.get_cyb_up(date)
             self.diff_list.append(diffs)
             self.cyb_list.append(cybs)

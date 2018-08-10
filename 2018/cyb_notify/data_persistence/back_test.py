@@ -162,13 +162,14 @@ class HearMysql:
         weight_six = hm.get_weight_six(begin_time, end_time)
         industry_diff = hm.cyb_industry_factor(begin_time, end_time)
         cyb = hm.cyb
-        cache_list =  []
+        cache_list = []
         for i in range(len(weight_six)):
             cyb_industry = industry_diff[i]
             cyb_six_industry = cyb[i] - weight_six[i] + cyb_b
             cyb_diff = cyb_six_industry + wei_b * cyb_industry
-            cache_list.append(raw_f)
-        return cache_list
+            yield cyb_six_industry,wei_b * cyb_industry
+        #     cache_list.append(cyb_diff)
+        # return cyb_six_industry ,industry_diff
 
 def weight_mean(list, mean_num=30):
     mean = 0
