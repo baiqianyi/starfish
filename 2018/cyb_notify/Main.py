@@ -9,7 +9,7 @@ import models.model as model
 import logging.handlers
 import utils.dfcf_data as dfcf_data
 import configparser
-import DataPersistence.leastsq as leastsq
+import data_persistence.leastsq as leastsq
 
 logger = logging.getLogger('mylogger')
 logger.setLevel(logging.DEBUG)

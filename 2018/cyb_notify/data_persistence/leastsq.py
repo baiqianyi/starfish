@@ -3,7 +3,7 @@ import numpy as np   ##科学计算库
 # import scipy as sp   ##在numpy基础上实现的部分算法库
 # import matplotlib.pyplot as plt  ##绘图库
 from scipy.optimize import leastsq  ##引入最小二乘法算法
-import DataPersistence.hear_mysql as hear_mysql
+import data_persistence.hear_mysql as hear_mysql
 
 b_infinity = 0.6
 

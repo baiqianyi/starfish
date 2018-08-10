@@ -1,9 +1,11 @@
-import pymysql
-from dao.industryDao import IndustryDao
-from service.sortedIndustryCode import SortedIndustryCode
-from DataPersistence.backTestData import BackTestData
 import datetime
-import meta.constant as constant
+
+import pymysql
+
+from data_persistence.backTestData import BackTestData
+from dao.industryDao import IndustryDao
+from utils.sortedIndustryCode import SortedIndustryCode
+
 
 class QuantDataPersistence:
     def __init__(self):

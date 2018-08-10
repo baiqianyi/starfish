@@ -7,8 +7,8 @@ class model:
     def __init__(self,log=None):
         self.logger = log
         self.begin_delta_time = datetime.timedelta(seconds=360)
-        self.std_buy = -0.6
-        self.std_sell = 0.6
+        self.std_buy = -0.9
+        self.std_sell = 0.85
 
         self.amEnd = datetime.datetime.combine(datetime.datetime.now().date(), datetime.time(hour=11, minute=30, second=30))
         self.pmBegin = datetime.datetime.combine(datetime.datetime.now().date(), datetime.time(hour=13, minute=0, second=0))
@@ -39,13 +39,8 @@ class model:
             sz50_diff = sz50_real - six_indst + sz50_b
             self.tmp_six_indst = six_indst
 
-            cyb_six_industry = 0.8*cyb_real - six_indst + cyb_b #- cyb_b2
-            factor_ = 0
-            if cyb_six_industry < 0 and cyb_industry < 0:
-                factor_ = -1
-            elif cyb_six_industry > 0 and cyb_industry > 0:
-                factor_ = 1
-            cyb_diff = factor_ * (abs(cyb_six_industry * cyb_industry))**0.5
+            cyb_six_industry = 0.8 * cyb_real - six_indst + cyb_b #- cyb_b2
+            cyb_diff = cyb_six_industry + 0.5*cyb_industry
             base_cyb_diff = self.base_diff(cyb_diff)
             self.diff_list.append(base_cyb_diff)
             if len(self.diff_list) > 10:
