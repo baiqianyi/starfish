@@ -54,7 +54,7 @@ def cyb_result():
 
     Para=leastsq(error,p0,args=(Xi,Yi))
     k, b = Para[0]
-    return k,(1*b+0*b_infinity)
+    return k,b
 
 def sz50_result():
     sz50, six, fail_check = h.get_data('sec_sz50')

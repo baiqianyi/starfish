@@ -156,6 +156,20 @@ class HearMysql:
             six_list.extend(tmp_list_2[50:])
         return re_cyb, six_list, fail_check
 
+    def day_diff_list(self, date, wei_b=0.5):
+        begin_time =  datetime.datetime.combine(date.date(), datetime.time(hour=9, minute=29, second=59))
+        end_time = datetime.datetime.combine(date.date(), datetime.time(hour=9, minute=30, second=59))
+        weight_six = hm.get_weight_six(begin_time, end_time)
+        industry_diff = hm.cyb_industry_factor(begin_time, end_time)
+        cyb = hm.cyb
+        cache_list =  []
+        for i in range(len(weight_six)):
+            cyb_industry = industry_diff[i]
+            cyb_six_industry = cyb[i] - weight_six[i] + cyb_b
+            cyb_diff = cyb_six_industry + wei_b * cyb_industry
+            cache_list.append(raw_f)
+        return cache_list
+
 def weight_mean(list, mean_num=30):
     mean = 0
     t_list = []
