@@ -43,7 +43,7 @@ class opt_factors:
 
     def diffs_and_cybs(self):
         for date in self.trade_dates:
-            diffs = self.hm.day_diff_list(date,wei_b=0.5)
+            diffs = self.hm.day_diff_list(date)
             cybs = self.hm.get_cyb_up(date)
             self.diff_list.append(diffs)
             self.cyb_list.append(cybs)
