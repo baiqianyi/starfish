@@ -2,7 +2,7 @@ import datetime
 import tushare as ts
 
 def get_trade_date(back=4,back_start=0):
-    date = (datetime.datetime.now()-datetime.timedelta(days=20)).strftime("%Y-%m-%d %H:%M:%S")[:10]
+    date = (datetime.datetime.now()-datetime.timedelta(days=100)).strftime("%Y-%m-%d %H:%M:%S")[:10]
     df = ts.get_k_data('399300', index=True,start=date)
     # print (df)
     if back_start == 0:

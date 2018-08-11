@@ -2,7 +2,7 @@ import datetime
 import tushare as ts
 import os
 import pymysql
-os.chdir('C:\\Users\\baiqy\\Desktop\\quant\\cyb_notify')
+os.chdir('C:\\Users\\baiqy\\Desktop\\tmp\\starfish\\2018\\cyb_notify')
 import config.config as config
 
 class HearMysql:
@@ -23,6 +23,11 @@ class HearMysql:
                                       db='follow_cyb').cursor()
         self.up_list_list = []
         self.cyb = []
+        # self.cyb_list = []
+        import utils.trade_date as td
+        self.trade_dates = td.get_trade_date(30)
+        self.cyb_bs = []
+        self.cyb_b_index = -1
 
     def get_indst_six_list(self, begin_time, end_time):
         self.data_sorted(begin_time, end_time)
@@ -59,7 +64,7 @@ class HearMysql:
         self.data_sorted(begin_time, end_time)
         weights = {}
         import os
-        os.chdir('C:\\Users\\baiqy\\Desktop\\quant\\cyb_notify')
+        os.chdir('C:\\Users\\baiqy\\Desktop\\tmp\\starfish\\2018\\cyb_notify')
         with open('config\\industry_weights-2018-7-21.info', 'r') as f:
             for line in f.readlines():
                 weights['bk'+str(line.strip()).split("\t")[1][2:]] = int(line.strip().split("\t")[2])
@@ -68,7 +73,6 @@ class HearMysql:
         for up in self.up_list_list:
             six_list.append(wp.weight_point(up,weights))
         return six_list
-
 
     def get_down_indst_six_list(self, begin_time, end_time):
         self.data_sorted(begin_time, end_time)
@@ -157,17 +161,32 @@ class HearMysql:
         return re_cyb, six_list, fail_check
 
     def day_diff_list(self, date):
+        # cyb_k,cyb_b = self.cyb_b(date)
+        # self.cyb_bs.append((cyb_k,cyb_b))
+        # print(len(self.cyb_bs),self.cyb_bs)
+        cyb_bs = [0.7, 0.93425461114193864, 0.92577010461717701, 0.8572226522602906, 0.39991379525025555, 0.41924387094986615, 0.69498900698535537, 0.7832686320027531, 0.78819831925581296, 0.90770220937926771, 0.90846554756284581, 0.73787868891845998, 0.84591184715579759, 1.0107988845706863, 0.96315734298102096, 1.233259640083745, 1.2208382398314621, 1.19681679859111, 0.65509191850010173, 0.56632187447485038, 0.59357071140356543, 0.59195086122476959, 0.53869667331051052, 0.56287101562624486, 0.71253339530578652, 0.89098102335433671]
         begin_time =  datetime.datetime.combine(date.date(), datetime.time(hour=9, minute=29, second=59))
-        end_time = datetime.datetime.combine(date.date(), datetime.time(hour=9, minute=30, second=59))
-        weight_six = hm.get_weight_six(begin_time, end_time)
-        industry_diff = hm.cyb_industry_factor(begin_time, end_time)
-        cyb = hm.cyb
-        cache_list = []
+        end_time = datetime.datetime.combine(date.date(), datetime.time(hour=15, minute=00, second=59))
+        weight_six = self.get_weight_six(begin_time, end_time)
+        industry_diff = self.cyb_industry_factor(begin_time, end_time)
+        # self.get_cyb_up(begin_time)
+        # cache_list = []
+        self.cyb_b_index = self.cyb_b_index + 1
         for i in range(len(weight_six)):
             cyb_industry = industry_diff[i]
-            cyb_six_industry = cyb[i] - weight_six[i] + cyb_b
+            cyb_six_industry = 0.3*self.cyb[i] - weight_six[i] + cyb_bs[self.cyb_b_index]
             # cyb_diff = cyb_six_industry + wei_b * cyb_industry
             yield cyb_six_industry,cyb_industry
+
+    def cyb_b(self,date):
+        import data_persistence.leastsq as lt
+        for i in range(len(self.trade_dates)):
+            if self.trade_dates[i].day == date.day and self.trade_dates[i].month == date.month:
+                if   i >= 5 :
+                    return lt.cyb_result(self.trade_dates[i-5:i])
+                elif i < 5 :
+                    return 0.8,0.7
+
         #     cache_list.append(cyb_diff)
         # return cyb_six_industry ,industry_diff
 

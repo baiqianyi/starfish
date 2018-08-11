@@ -2,19 +2,20 @@ import datetime
 import utils.email_notify as en
 import pymysql
 
-
 class model:
     def __init__(self,log=None):
         self.logger = log
         self.begin_delta_time = datetime.timedelta(seconds=360)
-        self.std_buy = -0.9
-        self.std_sell = 0.85
+        self.std_buy = -0.65
+        self.std_sell = 0.56
+
 
         self.amEnd = datetime.datetime.combine(datetime.datetime.now().date(), datetime.time(hour=11, minute=30, second=30))
         self.pmBegin = datetime.datetime.combine(datetime.datetime.now().date(), datetime.time(hour=13, minute=0, second=0))
 
         self.last_report_time = None
         self.tmp_six_indst = None
+
         self.max_diff = 0
         self.min_diff = 0
 
@@ -29,18 +30,16 @@ class model:
 
         self.analysis_cursor = pymysql.connect(host='127.0.0.1', port=3306, user='root', password='1111',
                                           db='analysis')
-
         self.diff_list = []
 
     #1为500，2为50，3为不做操作，0为空仓
-    def position(self,six_indst = 0.2,cyb_real=None, sz50_real=None,cyb_b=0.73,sz50_b=0.73,cyb_industry=0.0):
 
+    def position(self,six_indst = 0.2,cyb_real=None, sz50_real=None,cyb_b=0.73,sz50_b=0.73,cyb_industry=0.0):
         if self.tmp_six_indst != six_indst:
             sz50_diff = sz50_real - six_indst + sz50_b
             self.tmp_six_indst = six_indst
-
-            cyb_six_industry = 0.8 * cyb_real - six_indst + cyb_b #- cyb_b2
-            cyb_diff = cyb_six_industry + 0.5*cyb_industry
+            cyb_six_industry = 0.3 * cyb_real - six_indst + cyb_b #- cyb_b2
+            cyb_diff = cyb_six_industry #+ 0.5*cyb_industry
             base_cyb_diff = self.base_diff(cyb_diff)
             self.diff_list.append(base_cyb_diff)
             if len(self.diff_list) > 10:
@@ -48,7 +47,6 @@ class model:
             base_cyb_diff = self.weight_mean(self.diff_list)
             self.store_analysis(cyb_real, cyb_industry, cyb_six_industry, six_indst, cyb_b)
             self.store_m(base_cyb_diff)
-
             sell_notify = False
             buy_notify = False
             msg = ""
@@ -102,7 +100,6 @@ class model:
         if self.min_diff > cyb_diff:
             self.min_diff = cyb_diff
             self.min_diff_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
     def base_diff(self,diff):
         self.base_factor = self.base_factor + diff
         now = datetime.datetime.now()
@@ -134,7 +131,6 @@ class model:
             # 发生错误时回滚
             print(e)
             self.analysis_cursor.rollback()
-
 
 if __name__ == "__main__":
     m = model()

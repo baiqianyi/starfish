@@ -37,8 +37,8 @@ def error(p,x,y):
 p0=[0.85,0.77]
 
 #把error函数中除了p0以外的参数打包到args中(使用要求)
-def cyb_result():
-    cyb, six, fail_check = h.get_data('sec_cyb')
+def cyb_result(dates=None):
+    cyb, six, fail_check = h.get_data(dates,'sec_cyb')
     print(cyb)
     print(six)
     p0 = [0.85, 0.77]

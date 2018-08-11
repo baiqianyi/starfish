@@ -5,7 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/cat/2018/cyb_no_trade" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/2018/cyb_notify" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.6.0 (C:\ProgramData\Anaconda3\python.exe)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6.1 (C:\ProgramData\Anaconda3\python.exe)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">

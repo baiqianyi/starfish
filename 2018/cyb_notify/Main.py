@@ -24,7 +24,6 @@ pmBegin = dt.datetime.combine(dt.datetime.now().date(),dt.time(hour=13,minute=0,
 pmEnd = dt.datetime.combine(dt.datetime.now().date(),dt.time(hour=15,minute=0,second=0))
 buyBegin = dt.datetime.combine(dt.datetime.now().date(),dt.time(hour=9,minute=44,second=25))
 
-
 oneMinuteOpenTime = 0
 allStocksOpen = None
 model = model.model(log=logger)

@@ -19,7 +19,6 @@ class judge_industry:
         self.industryPreSatisfied = []
         self.cyb = self.cyb_real()
 
-
     def get_six_industry(self):
         return self.sixIndustry
 

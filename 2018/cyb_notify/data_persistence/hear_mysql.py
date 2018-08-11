@@ -93,10 +93,11 @@ class HearMysql:
         self.sec_cursor.execute(sql)
         return self.sec_cursor.fetchall()
 
-    def get_data(self,table='sec_cyb'):
+    def get_data(self,date,table='sec_cyb'):
         fail_check = 0
         import utils.trade_date as td
-        date = td.get_trade_date(5)
+        if date == None:
+            date = td.get_trade_date(5)
         hm = HearMysql()
         re_cyb = []
         six_list = []
