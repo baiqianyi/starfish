@@ -39,7 +39,6 @@ class HearMysql:
 
     def cyb_industry_factor(self,begin_time, end_time):
         cyb_weight = config.cyb_weight
-        cyb = self.get_cyb_up(begin_time)
         self.data_sorted(begin_time, end_time)
         # cxg = self.get_cxg()
         res_list = []
@@ -48,7 +47,7 @@ class HearMysql:
             res = 0
             for j in range(len(self.up_list_list[i])):
                 if cyb_weight.get('BK'+self.up_list_list[i][j][0][2:]) != None:
-                    res = res + cyb_weight.get('BK'+self.up_list_list[i][j][0][2:])*(cyb[i]-self.up_list_list[i][j][1])
+                    res = res + cyb_weight.get('BK'+self.up_list_list[i][j][0][2:])*(-1*self.up_list_list[i][j][1])
             res = res/sum(cyb_weight.values())
             res_list.append(res)
         return res_list
@@ -161,22 +160,26 @@ class HearMysql:
         return re_cyb, six_list, fail_check
 
     def day_diff_list(self, date):
-        # cyb_k,cyb_b = self.cyb_b(date)
-        # self.cyb_bs.append((cyb_k,cyb_b))
+        # cyb_b = self.cyb_b(date)
+        # self.cyb_bs.append(cyb_b)
         # print(len(self.cyb_bs),self.cyb_bs)
-        cyb_bs = [0.7, 0.93425461114193864, 0.92577010461717701, 0.8572226522602906, 0.39991379525025555, 0.41924387094986615, 0.69498900698535537, 0.7832686320027531, 0.78819831925581296, 0.90770220937926771, 0.90846554756284581, 0.73787868891845998, 0.84591184715579759, 1.0107988845706863, 0.96315734298102096, 1.233259640083745, 1.2208382398314621, 1.19681679859111, 0.65509191850010173, 0.56632187447485038, 0.59357071140356543, 0.59195086122476959, 0.53869667331051052, 0.56287101562624486, 0.71253339530578652, 0.89098102335433671]
+        cyb_bs = [0.7, 0.7, 0.87647589488013544, 0.78757353606544012, 0.45573370568800098, 0.57270836545593207, 0.78262654860698266,
+                  0.80516361768851008, 0.77763228744769308, 0.93120324842852986, 0.83019168576282776, 0.71087026317586577, 0.82554462384431948,
+                  1.050930322794722, 1.0075900282525254, 1.2200432228850064, 1.2422889935483477, 1.2971514676567175, 1.0209186209349732,
+                  0.95728519853548721, 0.59213536986799753, 0.61070783136975981, 0.47470241509927735, 0.50876634402543974, 0.64152971670219794,
+                  0.88681182418399174, 0.84785423469035426,0.799428991081]
         begin_time =  datetime.datetime.combine(date.date(), datetime.time(hour=9, minute=29, second=59))
         end_time = datetime.datetime.combine(date.date(), datetime.time(hour=15, minute=00, second=59))
         weight_six = self.get_weight_six(begin_time, end_time)
         industry_diff = self.cyb_industry_factor(begin_time, end_time)
-        # self.get_cyb_up(begin_time)
+        self.get_cyb_up(begin_time)
         # cache_list = []
         self.cyb_b_index = self.cyb_b_index + 1
         for i in range(len(weight_six)):
             cyb_industry = industry_diff[i]
-            cyb_six_industry = 0.3*self.cyb[i] - weight_six[i] + cyb_bs[self.cyb_b_index]
+            # cyb_six_industry = 0.3*self.cyb[i] +industry_diff[i]#- weight_six[i] + cyb_bs[self.cyb_b_index]#+industry_diff[i]
             # cyb_diff = cyb_six_industry + wei_b * cyb_industry
-            yield cyb_six_industry,cyb_industry
+            yield weight_six[i],cyb_industry, cyb_bs[self.cyb_b_index]
 
     def cyb_b(self,date):
         import data_persistence.leastsq as lt
@@ -185,7 +188,7 @@ class HearMysql:
                 if   i >= 5 :
                     return lt.cyb_result(self.trade_dates[i-5:i])
                 elif i < 5 :
-                    return 0.8,0.7
+                    return 0.7
 
         #     cache_list.append(cyb_diff)
         # return cyb_six_industry ,industry_diff

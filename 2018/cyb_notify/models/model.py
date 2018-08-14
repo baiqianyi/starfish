@@ -6,10 +6,9 @@ class model:
     def __init__(self,log=None):
         self.logger = log
         self.begin_delta_time = datetime.timedelta(seconds=360)
-        self.std_buy = -0.65
-        self.std_sell = 0.56
-
-
+        self.std_buy = -0.826
+        self.std_sell = 0.37
+        # 0.34453064057819965, -0.58066720314595333
         self.amEnd = datetime.datetime.combine(datetime.datetime.now().date(), datetime.time(hour=11, minute=30, second=30))
         self.pmBegin = datetime.datetime.combine(datetime.datetime.now().date(), datetime.time(hour=13, minute=0, second=0))
 
@@ -33,36 +32,44 @@ class model:
         self.diff_list = []
 
     #1为500，2为50，3为不做操作，0为空仓
-
+    # 0.38850739380403643, -0.3196062508549381, 0.18273999548929595, 0.25591966139562783
+    #0.3885, -0.31960, 0.18274, 0.256
     def position(self,six_indst = 0.2,cyb_real=None, sz50_real=None,cyb_b=0.73,sz50_b=0.73,cyb_industry=0.0):
         if self.tmp_six_indst != six_indst:
             sz50_diff = sz50_real - six_indst + sz50_b
             self.tmp_six_indst = six_indst
-            cyb_six_industry = 0.3 * cyb_real - six_indst + cyb_b #- cyb_b2
-            cyb_diff = cyb_six_industry #+ 0.5*cyb_industry
-            base_cyb_diff = self.base_diff(cyb_diff)
-            self.diff_list.append(base_cyb_diff)
+            # cyb_six_industry = 0.256 * cyb_real - (1-0.183)*six_indst + cyb_b + 0.183*cyb_industry#- cyb_b2
+            # 0.37, -0.826, 0.266
+            cyb_diff = 0.266 * cyb_real + (- six_indst + cyb_b)# + 0.2415 * cyb_industry
+            # base_cyb_diff = self.base_diff(cyb_diff)
+            self.diff_list.append(cyb_diff)
             if len(self.diff_list) > 10:
                 del self.diff_list[0]
-            base_cyb_diff = self.weight_mean(self.diff_list)
-            self.store_analysis(cyb_real, cyb_industry, cyb_six_industry, six_indst, cyb_b)
-            self.store_m(base_cyb_diff)
+            cyb_diff = self.weight_mean(self.diff_list)
+            self.store_analysis(cyb_real, cyb_industry, 0, six_indst, cyb_b)
+            self.store_m(cyb_diff)
             sell_notify = False
             buy_notify = False
             msg = ""
-            if base_cyb_diff > self.std_sell:
+            if cyb_diff > self.std_sell:
                 sell_notify = True
-            if base_cyb_diff < self.std_buy:
+            if cyb_diff < self.std_buy:
                 buy_notify = True
             if sell_notify:
                 msg = " <font color=\"red\">sell_point_time : "+datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+"</font>"
+                en.email_notify(title="sell notify", msg=msg)
+                import time
+                time.sleep(30)
             if buy_notify:
                 msg = " <font size=\"5\" face=\"verdana\" color=\"red\">buy_point_time : " + datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + "</font>"
-            msg = msg + "<br> base_cyb_diff : " + str(base_cyb_diff)  + "<br> cyb_diff : " + str(cyb_diff)  + "<br> cyb_min_diff : " + str(self.min_diff)  +" , cyb_min_diff_time : " + str(self.min_diff_time) +"<br> cyb_max_diff : " + str(self.max_diff) +" , cyb_max_diff_time : " + str(self.max_diff_time) +"<br> cyb_std_sell : " + str(self.std_sell) +"<br> cyb_std_buy : " + str(self.std_buy)+" <br> cyb_industry : " + str(cyb_industry) + "<br> cyb_six_indestry : " + str(cyb_six_industry) + "<br> six_indst : "+str(six_indst)+"<br> six_i : " + str(six_indst) +  "<br> a50_diff : " + str(sz50_diff) + " <br> sz50_real : " + str(sz50_real) + "<br> cyb_real : " + str(cyb_real) + "<br> cyb_b : " + str(cyb_b) + "<br> sz50_b : " + str(sz50_b)
-            print(base_cyb_diff)
-            if (self.last_report_time == None or self.last_report_time + datetime.timedelta(seconds=90) < datetime.datetime.now()) and datetime.datetime.now() > datetime.datetime.combine(datetime.datetime.now().date(), datetime.time(hour=9, minute=36, second=0)):
+                en.email_notify(title="buy notify", msg=msg)
+                import time
+                time.sleep(30)
+            msg = msg  + "vmware <br> cyb_diff : " + str(cyb_diff)  + "<br> cyb_min_diff : " + str(self.min_diff)  +" , cyb_min_diff_time : " + str(self.min_diff_time) +"<br> cyb_max_diff : " + str(self.max_diff) +" , cyb_max_diff_time : " + str(self.max_diff_time) +"<br> cyb_std_sell : " + str(self.std_sell) +"<br> cyb_std_buy : " + str(self.std_buy)+" <br> cyb_industry : " + str(cyb_industry) + "<br> six_indst : "+str(six_indst)+"<br> six_i : " + str(six_indst) +  "<br> a50_diff : " + str(sz50_diff) + " <br> sz50_real : " + str(sz50_real) + "<br> cyb_real : " + str(cyb_real) + "<br> cyb_b : " + str(cyb_b) + "<br> sz50_b : " + str(sz50_b)
+
+            if (self.last_report_time == None or self.last_report_time + datetime.timedelta(seconds=300) < datetime.datetime.now()) and datetime.datetime.now() > datetime.datetime.combine(datetime.datetime.now().date(), datetime.time(hour=9, minute=36, second=0)):
                 self.last_report_time = datetime.datetime.now()
-                en.email_notify(title="2 minutes notify",msg=msg)
+                en.email_notify(title="5 minutes notify",msg=msg)
             self.logger.info(msg)
 
     def weight_mean(self,list, mean_num=5):

@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfd2a489-a314-4e2d-91de-248d64921c82" name="Default" comment="1.  9点35分后发送指标&#10;2.  减少cyb权重到0.8 和 0.9&#10;3.  添加是否执行买卖和买卖点时间的邮件信息&#10;4.  标红重要信息&#10;5.  极点平均化">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2018/cyb_notify/data_persistence/k,b.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2018/cyb_notify/logs/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2018/cyb_notify/logs/cyb.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2018/cyb_notify/logs/cyb.log.2018-08-13" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/starfish.iml" afterPath="$PROJECT_DIR$/.idea/starfish.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -28,26 +32,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="industry_judge.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/utils/industry_judge.py">
+      <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/models/model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="437">
+              <caret line="57" column="27" lean-forward="true" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/models/model.py">
+      <file leaf-file-name="k,b.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/k,b.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cyb.log.2018-08-13" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/logs/cyb.log.2018-08-13">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="22" column="72" lean-forward="true" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,8 +65,46 @@
       <file leaf-file-name="hear_mysql.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/hear_mysql.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2599">
-              <caret line="116" column="20" lean-forward="false" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
+            <state relative-caret-position="2484">
+              <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+              <folding>
+                <marker date="1534122795327" expanded="true" signature="71:6213" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="4428:6213" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="4553:6169" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="4587:4930" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="5040:5116" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="5440:5591" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="5756:6021" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="6250:6644" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="6402:6601" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="6661:6890" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="6684:6863" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="8058:8328" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="8560:10210" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="8791:9886" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="9023:9195" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="9344:9417" ph="..." />
+                <marker date="1534122795327" expanded="true" signature="9595:9886" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="backtest.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/models/backtest.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1403">
+              <caret line="66" column="50" lean-forward="false" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="backTestData.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/backTestData.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -65,8 +113,21 @@
       <file leaf-file-name="leastsq.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/leastsq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1288">
-              <caret line="60" column="23" lean-forward="false" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+            <state relative-caret-position="1610">
+              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <folding>
+                <marker date="1534168795187" expanded="true" signature="392:398" ph="..." />
+                <marker date="1534168795187" expanded="true" signature="1814:1843" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sec_indexs.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/sec_indexs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="3" column="70" lean-forward="false" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -75,63 +136,30 @@
       <file leaf-file-name="back_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/back_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3979">
-              <caret line="176" column="34" lean-forward="false" selection-start-line="176" selection-start-column="34" selection-end-line="176" selection-end-column="34" />
-              <folding />
+            <state relative-caret-position="943">
+              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+              <folding>
+                <marker date="1534253961628" expanded="true" signature="8972:9063" ph="..." />
+                <marker date="1534253961628" expanded="true" signature="8981:9063" ph="..." />
+                <marker date="1534253961628" expanded="true" signature="9100:9494" ph="..." />
+                <marker date="1534253961628" expanded="true" signature="9252:9451" ph="..." />
+                <marker date="1534253961628" expanded="true" signature="9511:9740" ph="..." />
+                <marker date="1534253961628" expanded="true" signature="9534:9713" ph="..." />
+                <marker date="1534253961628" expanded="true" signature="9754:9812" ph="..." />
+                <marker date="1534253961628" expanded="true" signature="9797:9812" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="opt_factors.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="opt_factors.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2018/cyb_notify/models/opt_factors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="90" column="24" lean-forward="false" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+            <state relative-caret-position="3726">
+              <caret line="162" column="14" lean-forward="false" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="k,b.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/k,b.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="optimization.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/utils/optimization.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="10" column="91" lean-forward="false" selection-start-line="10" selection-start-column="91" selection-end-line="10" selection-end-column="91" />
-              <folding>
-                <element signature="e#0#12#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="trade_date.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2018/cyb_notify/utils/trade_date.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -160,6 +188,8 @@
       <find>self.cyb_list</find>
       <find>self.cyb</find>
       <find>self.funcList</find>
+      <find>cyb_k</find>
+      <find>diff_list</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -189,11 +219,8 @@
         <option value="$PROJECT_DIR$/2018/cyb_notify/test.py" />
         <option value="$PROJECT_DIR$/2018/cyb_notify/config/industry_weights-2018-7-21.info" />
         <option value="$PROJECT_DIR$/2018/cyb_notify/config/config.py" />
-        <option value="$PROJECT_DIR$/2018/cyb_notify/Main.py" />
         <option value="$PROJECT_DIR$/2018/cyb_notify/models/backtest.py" />
         <option value="$PROJECT_DIR$/2018/cyb_notify/utils/industry_judge.py" />
-        <option value="$PROJECT_DIR$/2018/cyb_notify/data_persistence/hear_mysql.py" />
-        <option value="$PROJECT_DIR$/2018/cyb_notify/data_persistence/leastsq.py" />
         <option value="$PROJECT_DIR$/2018/cyb_notify/data_persistence/tag" />
         <option value="$PROJECT_DIR$/2018/cyb_notify/data_persistence/compare1.py" />
         <option value="$PROJECT_DIR$/2018/cyb_notify/data_persistence/compare2.py" />
@@ -201,9 +228,12 @@
         <option value="$PROJECT_DIR$/2018/cyb_notify/utils/optimization.py" />
         <option value="$PROJECT_DIR$/2018/cyb_notify/data_persistence/k,b" />
         <option value="$PROJECT_DIR$/2018/cyb_notify/data_persistence/k,b.py" />
+        <option value="$PROJECT_DIR$/2018/cyb_notify/data_persistence/hear_mysql.py" />
+        <option value="$PROJECT_DIR$/2018/cyb_notify/data_persistence/leastsq.py" />
+        <option value="$PROJECT_DIR$/2018/cyb_notify/Main.py" />
         <option value="$PROJECT_DIR$/2018/cyb_notify/data_persistence/back_test.py" />
-        <option value="$PROJECT_DIR$/2018/cyb_notify/models/model.py" />
         <option value="$PROJECT_DIR$/2018/cyb_notify/models/opt_factors.py" />
+        <option value="$PROJECT_DIR$/2018/cyb_notify/models/model.py" />
       </list>
     </option>
   </component>
@@ -234,6 +264,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -264,6 +295,13 @@
               <item name="starfish" type="462c0819:PsiDirectoryNode" />
               <item name="2018" type="462c0819:PsiDirectoryNode" />
               <item name="cyb_notify" type="462c0819:PsiDirectoryNode" />
+              <item name="logs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="starfish" type="b2602c69:ProjectViewProjectNode" />
+              <item name="starfish" type="462c0819:PsiDirectoryNode" />
+              <item name="2018" type="462c0819:PsiDirectoryNode" />
+              <item name="cyb_notify" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -277,7 +315,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -520,6 +557,24 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="leastsq" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2018/cyb_notify/data_persistence" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="starfish" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2018/cyb_notify/data_persistence/leastsq.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="opt_factors" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -538,38 +593,20 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/2018/cyb_notify" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="starfish" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/2018/cyb_notify/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.Main (1)" />
-      <item index="1" class="java.lang.String" itemvalue="Python.test" />
-      <item index="2" class="java.lang.String" itemvalue="Python.back_test" />
-      <item index="3" class="java.lang.String" itemvalue="Python.opt_factors" />
-      <item index="4" class="java.lang.String" itemvalue="Python.k,b" />
+      <item index="1" class="java.lang.String" itemvalue="Python.back_test" />
+      <item index="2" class="java.lang.String" itemvalue="Python.opt_factors" />
+      <item index="3" class="java.lang.String" itemvalue="Python.k,b" />
+      <item index="4" class="java.lang.String" itemvalue="Python.leastsq" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.opt_factors" />
-        <item index="1" class="java.lang.String" itemvalue="Python.k,b" />
-        <item index="2" class="java.lang.String" itemvalue="Python.back_test" />
-        <item index="3" class="java.lang.String" itemvalue="Python.test" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Main (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leastsq" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Main (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.k,b" />
+        <item index="4" class="java.lang.String" itemvalue="Python.back_test" />
       </list>
     </recent_temporary>
   </component>
@@ -652,18 +689,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20761803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21298283" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5177936" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.57369614" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265306" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265306" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29705215" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39909297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39909297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -691,41 +729,35 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/back_test.py</url>
-          <line>251</line>
+          <line>276</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/back_test.py</url>
-          <line>250</line>
+          <line>275</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/back_test.py</url>
-          <line>249</line>
+          <line>274</line>
           <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/back_test.py</url>
-          <line>28</line>
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/2018/cyb_notify/models/opt_factors.py</url>
-          <line>86</line>
-          <option name="timeStamp" value="73" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="74" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="83" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cat/2018/cyb_no_trade/DataPersistence/thshRealtimeData.py" />
-    <entry file="file://$PROJECT_DIR$/cat/2018/cyb_no_trade/DataPersistence/topIndustryMean.py" />
-    <entry file="file://$PROJECT_DIR$/cat/2018/cyb_no_trade/Main.py" />
     <entry file="file://$PROJECT_DIR$/cat/2018/cyb_no_trade/models/backtest.py" />
     <entry file="file://$PROJECT_DIR$/cat/2018/cyb_no_trade/models/model.py" />
     <entry file="file://$PROJECT_DIR$/cat/2018/cyb_no_trade/models/train.py" />
@@ -749,17 +781,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/logs/cyb.log" />
     <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/topIndustryMean.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1290">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/cyb_weight.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-234">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
@@ -841,13 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/utils/sort.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2018/cyb_notify/utils/sortedIndustryCode.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
@@ -859,13 +876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2025">
           <caret line="79" column="21" lean-forward="false" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/models/backtest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1809">
-          <caret line="72" column="14" lean-forward="false" selection-start-line="72" selection-start-column="14" selection-end-line="72" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -883,6 +893,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/compare1.py" />
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/compare2.py" />
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/tag" />
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/starfish/2018/50cybCircle/Main.py" />
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/logs/cyb.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-28919">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/constants.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -890,115 +918,162 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/backTestData.py">
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/scipy/optimize/minpack.py" />
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/utils/trade_date.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="55" column="29" lean-forward="true" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/utils/industry_judge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-405">
+          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/utils/sort.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/sec_indexs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="3" column="70" lean-forward="true" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/compare1.py" />
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/compare2.py" />
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/tag" />
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/Main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="30" column="35" lean-forward="false" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/utils/trade_date.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2018/cyb_notify/utils/optimization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="10" column="91" lean-forward="false" selection-start-line="10" selection-start-column="91" selection-end-line="10" selection-end-column="91" />
+        <state relative-caret-position="1909">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/k,b.py">
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/cyb_weight.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/hear_mysql.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2599">
-          <caret line="116" column="20" lean-forward="false" selection-start-line="116" selection-start-column="20" selection-end-line="116" selection-end-column="20" />
+        <state relative-caret-position="1909">
+          <caret line="86" column="10" lean-forward="false" selection-start-line="86" selection-start-column="10" selection-end-line="86" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/leastsq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="60" column="23" lean-forward="false" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+        <state relative-caret-position="1610">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <marker date="1534168795187" expanded="true" signature="392:398" ph="..." />
+            <marker date="1534168795187" expanded="true" signature="1814:1843" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/sec_indexs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="3" column="70" lean-forward="false" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/utils/industry_judge.py">
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/backTestData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="33" column="22" lean-forward="false" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/hear_mysql.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2484">
+          <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1534122795327" expanded="true" signature="71:6213" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="4428:6213" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="4553:6169" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="4587:4930" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="5040:5116" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="5440:5591" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="5756:6021" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="6250:6644" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="6402:6601" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="6661:6890" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="6684:6863" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="8058:8328" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="8560:10210" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="8791:9886" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="9023:9195" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="9344:9417" ph="..." />
+            <marker date="1534122795327" expanded="true" signature="9595:9886" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/models/backtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1403">
+          <caret line="66" column="50" lean-forward="false" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/back_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3979">
-          <caret line="176" column="34" lean-forward="false" selection-start-line="176" selection-start-column="34" selection-end-line="176" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/models/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="943">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1534253961628" expanded="true" signature="8972:9063" ph="..." />
+            <marker date="1534253961628" expanded="true" signature="8981:9063" ph="..." />
+            <marker date="1534253961628" expanded="true" signature="9100:9494" ph="..." />
+            <marker date="1534253961628" expanded="true" signature="9252:9451" ph="..." />
+            <marker date="1534253961628" expanded="true" signature="9511:9740" ph="..." />
+            <marker date="1534253961628" expanded="true" signature="9534:9713" ph="..." />
+            <marker date="1534253961628" expanded="true" signature="9754:9812" ph="..." />
+            <marker date="1534253961628" expanded="true" signature="9797:9812" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2018/cyb_notify/models/opt_factors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="90" column="24" lean-forward="false" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+        <state relative-caret-position="3726">
+          <caret line="162" column="14" lean-forward="false" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/models/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="57" column="27" lean-forward="true" selection-start-line="57" selection-start-column="27" selection-end-line="57" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/data_persistence/k,b.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2018/cyb_notify/logs/cyb.log.2018-08-13">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" column="72" lean-forward="true" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>

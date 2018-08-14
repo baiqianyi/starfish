@@ -28,7 +28,7 @@ oneMinuteOpenTime = 0
 allStocksOpen = None
 model = model.model(log=logger)
 dfcf = dfcf_data.IndustryData()
-cyb_k, cyb_b = leastsq.cyb_result()
+cyb_b = leastsq.cyb_result()
 sz50_k, sz50_b = leastsq.sz50_result()
 past_config = configparser.ConfigParser()  # 注意大小写
 past_config.read("config\\past.info")  # 配置文件的路径

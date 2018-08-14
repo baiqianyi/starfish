@@ -18,7 +18,8 @@ h = hear_mysql.HearMysql()
 
 ##需要拟合的函数func :指定函数的形状
 def func(p,x):
-    k,b=p
+    k=0.84
+    b=p
     return k*x+b
 
 ##偏差函数：x,y都是列表:这里的x,y更上面的Xi,Yi中是一一对应的
@@ -34,14 +35,14 @@ def error(p,x,y):
 '''
 
 #k,b的初始值，可以任意设定,经过几次试验，发现p0的值会影响cost的值：Para[1]
-p0=[0.85,0.77]
+p0=[0.77]
 
 #把error函数中除了p0以外的参数打包到args中(使用要求)
 def cyb_result(dates=None):
     cyb, six, fail_check = h.get_data(dates,'sec_cyb')
     print(cyb)
     print(six)
-    p0 = [0.85, 0.77]
+    p0 = [0.77]
     ##样本数据(Xi,Yi)，需要转换成数组(列表)形式
     Xi = np.array(cyb)
     Yi = np.array(six)
@@ -53,22 +54,23 @@ def cyb_result(dates=None):
         return 0.8,float(past_config['cyb_sz50']["cyb_b"])
 
     Para=leastsq(error,p0,args=(Xi,Yi))
-    k, b = Para[0]
-    return k,b
+    b = Para[0][0]
+    return b
 
 def sz50_result():
-    sz50, six, fail_check = h.get_data('sec_sz50')
-    Xi = np.array(sz50)
-    Yi = np.array(six)
-    p0 = [0.85, 0.77]
-    if fail_check >= 2:
-        import configparser
-        past_config = configparser.ConfigParser()  # 注意大小写
-        past_config.read("config\\past.info")  # 配置文件的路径
-        return 0.8, float(past_config['cyb_sz50']["sz50_b"])
-    Para = leastsq(error, p0, args=(Xi, Yi))
-    k, b = Para[0]
-    return k, (1*b+0*b_infinity)
+    return 0.8,0.8
+    # sz50, six, fail_check = h.get_data('sec_sz50')
+    # Xi = np.array(sz50)
+    # Yi = np.array(six)
+    # p0 = [0.85, 0.77]
+    # if fail_check >= 2:
+    #     import configparser
+    #     past_config = configparser.ConfigParser()  # 注意大小写
+    #     past_config.read("config\\past.info")  # 配置文件的路径
+    #     return 0.8, float(past_config['cyb_sz50']["sz50_b"])
+    # Para = leastsq(error, p0, args=(Xi, Yi))
+    # k, b = Para[0]
+    # return k, (1*b+0*b_infinity)
 
 if __name__ == "__main__":
     print(cyb_result())
